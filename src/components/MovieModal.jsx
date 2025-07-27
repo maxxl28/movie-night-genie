@@ -56,8 +56,8 @@ export default function MovieModal({ movie, onClose }) {
             <ul className="streaming-list">
               {streamingServices.map((service, idx) => (
                 <li key={idx} className="streaming-item">
-                  <a href={service.url} target="_blank" rel="noopener noreferrer" className="streaming-link">
-                    {service.name}
+                  <a href={service.web_url} target="_blank" rel="noopener noreferrer" className="streaming-link">
+                    {service.source_name || service.name}
                   </a>
                 </li>
               ))} {/*display all streaming*/}

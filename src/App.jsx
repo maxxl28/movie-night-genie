@@ -49,7 +49,7 @@ function App() {
       <h1>🎬 Movie Night Genie 🧞</h1>
       <MoodSelector onGenreSelect={handleGenreClick} />
       {error && <div className="error-state">Error: {error}</div>} 
-      {showEndMessage && <div className="loading-state">No more movies to show!</div>} 
+      {showEndMessage && <div className="loading-state">No more movies to show! Click a new category.</div>} 
       {movies.length > 0 && (
         <MovieViewer movies={movies} onFinished={handleFinished} />
       )}
