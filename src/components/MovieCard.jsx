@@ -7,6 +7,7 @@ Purpose: Display the relevant movie information
 export default function MovieCard({ movie }) {
   return (
     <div className="movie-card">
+      {/* Display movie poster (if it exists), title, year, and overview */}
       {movie.poster && (
         <img 
           src={movie.poster} 

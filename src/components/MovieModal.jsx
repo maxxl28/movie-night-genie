@@ -11,7 +11,7 @@ import {
 
 export default function MovieModal({ movie, onClose }) {
   const [streamingServices, setStreamingServices] = useState(null);
-
+  // For when the movie prop changes
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,6 +20,7 @@ export default function MovieModal({ movie, onClose }) {
           const services = await fetchStreamingServices({
             name: movie.title,
           });
+          // Update state with fetched services
           setStreamingServices(services);
         } catch (servicesError) {
           console.log('Streaming services unavailable:', servicesError.message);
@@ -36,6 +37,7 @@ export default function MovieModal({ movie, onClose }) {
   return (
     <div className="modal">
       <div className="modal-container"> 
+        {/* Trailer section */}
         <div className="trailer-container"> 
           {movie.trailer ? (
             <iframe
@@ -47,6 +49,7 @@ export default function MovieModal({ movie, onClose }) {
           )} {/*fallback if no trailer*/}
         </div>
         <div className="streaming-container">
+          {/* Streaming services section */}
           <h3>Streaming Services</h3>
           {streamingServices === null ? (
             <div className="loading-state">Loading streaming info...</div>
@@ -55,15 +58,16 @@ export default function MovieModal({ movie, onClose }) {
           ) : (
             <ul className="streaming-list">
               {streamingServices.map((service, idx) => (
-                <li key={idx} className="streaming-item">
+                <li key={idx} className="streaming-item"> 
                   <a href={service.web_url} target="_blank" rel="noopener noreferrer" className="streaming-link">
                     {service.source_name || service.name}
                   </a>
                 </li>
-              ))} {/*display all streaming*/}
+              ))} {/*Display all streaming*/}
             </ul>
           )}
         </div>
+        {/* Close button */}
         <button className="close-button" onClick={onClose}>Close</button>
       </div>
     </div>

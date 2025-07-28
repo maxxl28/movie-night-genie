@@ -10,10 +10,10 @@ export async function fetchStreamingServices({ name }) {
   try {
     // Search for Watchmode ID
     const searchUrl = new URL(`${WATCHMODE_BASE_URL}/search/`);
-    searchUrl.searchParams.append('apiKey', import.meta.env.VITE_WATCHMODE_API_KEY);
-    searchUrl.searchParams.append('search_field', 'name');
-    searchUrl.searchParams.append('search_value', name);
-    searchUrl.searchParams.append('types', 'movie');
+    searchUrl.searchParams.append('apiKey', import.meta.env.VITE_WATCHMODE_API_KEY); // Use API key
+    searchUrl.searchParams.append('search_field', 'name'); // Search by title
+    searchUrl.searchParams.append('search_value', name); 
+    searchUrl.searchParams.append('types', 'movie'); // Filter by movies
 
     const searchResponse = await fetch(searchUrl);
     if (!searchResponse.ok) {
@@ -30,7 +30,7 @@ export async function fetchStreamingServices({ name }) {
     const bestMatch = searchData.title_results[0];
     const sourcesUrl = new URL(`${WATCHMODE_BASE_URL}/title/${bestMatch.id}/sources/`);
     sourcesUrl.searchParams.append('apiKey', import.meta.env.VITE_WATCHMODE_API_KEY);
-    sourcesUrl.searchParams.append('regions', 'US');
+    sourcesUrl.searchParams.append('regions', 'US'); // Lock to US
 
     const sourcesResponse = await fetch(sourcesUrl);
     if (!sourcesResponse.ok) {

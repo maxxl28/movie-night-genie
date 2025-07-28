@@ -13,7 +13,6 @@ import './styles/App.css';
 function App() {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [showEndMessage, setShowEndMessage] = useState(false);
 
   // Handle when the user has finished viewing all movies
@@ -25,31 +24,31 @@ function App() {
   // Handle when a genre is selected
   const handleGenreClick = async (genreName) => {
     setShowEndMessage(false); 
-    setIsLoading(true);
     setError(null);
 
     try {
       const result = await fetchMoviesByGenre(genreName);
       if (result.error) {
-        setError(result.error);
-        setMovies([]);
+        setError(result.error); 
+        setMovies([]); // Clear movies on error
       } else {
-        setMovies(result.movies);
+        setMovies(result.movies); // Update movies state
       }
     } catch (err) {
       setError('Failed to fetch movies');
       setMovies([]);
-    } finally {
-      setIsLoading(false);
-    }
+    } 
   };
 
   return (
     <div className="app">
       <h1>🎬 Movie Night Genie 🧞</h1>
+      {/* Genre selection component */}
       <MoodSelector onGenreSelect={handleGenreClick} />
+      {/* Error display (conditionally rendered) */}
       {error && <div className="error-state">Error: {error}</div>} 
       {showEndMessage && <div className="loading-state">No more movies to show! Click a new category.</div>} 
+      {/* Main movie viewer (only renders when movies exist) */}
       {movies.length > 0 && (
         <MovieViewer movies={movies} onFinished={handleFinished} />
       )}

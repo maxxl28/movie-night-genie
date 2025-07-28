@@ -13,6 +13,7 @@ function GenreButton({ value, onClick }) {
 export default function MoodSelector({ onGenreSelect }) {
   return (
     <div className="mood-selector"> 
+      {/* Grouped buttons for better layout */}
       <div>
         <GenreButton value="Comedy" onClick={onGenreSelect} />
         <GenreButton value="Action" onClick={onGenreSelect} />

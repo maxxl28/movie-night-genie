@@ -15,6 +15,7 @@ export default function MovieViewer({ movies, onFinished }) {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   const handleNext = () => {
+    // go to next movie and check if there are more movies
     if (currentIndex >= movies.length-1) {
       onFinished();
     } else {
@@ -34,6 +35,7 @@ export default function MovieViewer({ movies, onFinished }) {
 
   return (
     <div className="movie-viewer">
+      {/* If no movie is selected, show the movie card and the thumbs controls */}
       {!selectedMovie && (<MovieCard movie={movies[currentIndex]} />)}
       
       {!selectedMovie && (

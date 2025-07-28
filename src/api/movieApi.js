@@ -34,10 +34,10 @@ export async function fetchMoviesByGenre(genreName) {
     const url = new URL(`${TMDB_BASE_URL}/discover/movie`);
     url.searchParams.append('with_genres', genreId);
     url.searchParams.append('page', randomPage);
-    url.searchParams.append('sort_by', 'popularity.desc,release_date.desc'); 
+    url.searchParams.append('sort_by', 'popularity.desc,release_date.desc'); // Sort by quality of movie (popularity)
     url.searchParams.append('vote_count.gte', '100');
-    url.searchParams.append('include_adult', 'false');
-    url.searchParams.append('language', 'en-US');
+    url.searchParams.append('include_adult', 'false'); // No adult content
+    url.searchParams.append('language', 'en-US'); // English movies
 
     const response = await fetch(url, {
       headers: {
@@ -56,7 +56,7 @@ export async function fetchMoviesByGenre(genreName) {
         title: movie.title,
         poster: movie.poster_path 
           ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-          : null,
+          : null, // fallback if no poster
         year: movie.release_date?.split('-')[0] || 'N/A',
         overview: movie.overview,
         trailer // YouTube video key
