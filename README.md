@@ -7,7 +7,7 @@ The Movie Night Genie is perfect for helping indecisive film watchers find their
 [Deployed application link](https://movie-night-genie-mvp.vercel.app/)
 
 ## Demo Video
-![Demo Video](/path/to/your/video.mp4) <!-- Replace with your actual video file path -->
+https://user-images.githubusercontent.com/.../Screen-Recording.mp4
 
 ## Local Setup
 1. Clone the Repo
