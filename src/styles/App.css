@@ -164,12 +164,12 @@ button:hover {
   display: flex;
   width: 100%;
   max-width: 1200px;
-  height: 80vh; /* Increased height */
+  height: 80vh; 
   gap: 1.5rem;
 }
 
 .trailer-container {
-  flex: 2; /* Takes more space now */
+  flex: 2;
   min-width: 0;
   height: 100%;
   border-radius: 8px;
@@ -184,7 +184,7 @@ button:hover {
 }
 
 .streaming-container {
-  flex: 1; /* Takes less space now */
+  flex: 1; 
   background: rgba(20, 20, 20, 0.8);
   border-radius: 8px;
   padding: 1.5rem;
@@ -252,7 +252,6 @@ button:hover {
 
 .close-button:hover {
   background: rgba(255, 255, 255, 0.2);
-  /* Removed the transform rotation */
 }
 
 /* Loading & Error States */
