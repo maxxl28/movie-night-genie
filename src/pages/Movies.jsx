@@ -29,20 +29,27 @@ export default function Movies() {
     }, []);
 
   return (
-    <div>
+    <div className="page-container">
       <NavBar />
-      <h1>User's Liked Movies</h1>
-      <ul>
-        {movies.length > 0 ? (
-          movies.map((movie, index) => (
-            <li key={index}>
-              {movie.movie_title}
-            </li>
-          ))
-        ) : (
-          <p>No movies found.</p>
-        )}
-      </ul>
+      <div className="your-movies-container">
+        <h1 className="page-title">Your Liked Movies</h1>
+        <div className="movies-grid">
+          {movies.length > 0 ? (
+            movies.map((movie, index) => (
+              <div key={index} className="movie-card">
+                <h3 className="movie-title">{movie.movie_title}</h3>
+                <div className="liked-at">
+                  <span>Liked on {new Date(movie.liked_at).toLocaleDateString()}</span>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="no-movies">
+              <p>No movies found. Start liking some movies to see them here!</p>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 

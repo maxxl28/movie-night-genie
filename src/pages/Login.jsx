@@ -51,7 +51,7 @@ export default function Login() {
   };
 
   return (
-    <div className="login">
+    <div className="login-container">
       <form onSubmit={handleEmailLogin}>
         <h3>Login</h3>
         {error && <div className="error">{error}</div>}

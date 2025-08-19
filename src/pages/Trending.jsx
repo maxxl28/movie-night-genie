@@ -24,17 +24,22 @@ export default function Trending() {
   }, []);
 
   return (
-    <div>
+    <div className="page-container">
       <NavBar />
-      <h1>Trending This Week</h1>
-      <ul>
-        {movies.map(movie => (
-          <li key={movie.movie_id}>
-            <h3>{movie.movie_title}</h3>
-            <p>Likes: {movie.like_count}</p>
-          </li>
-        ))}
-      </ul>
+      <div className="trending-container">
+        <h1 className="page-title">Trending This Week</h1>
+        <div className="movies-grid">
+          {movies.map(movie => (
+            <div key={movie.movie_id} className="movie-card">
+              <h3 className="movie-title">{movie.movie_title}</h3>
+              <div className="like-count">
+                <span role="img" aria-label="heart">❤️</span>
+                <span>{movie.like_count} likes</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
