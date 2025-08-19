@@ -6,10 +6,9 @@ Purpose: Home page with all functionality for the Movie Night Genie app
 
 import { useState, useEffect } from 'react';
 import MoodSelector from '../components/MoodSelector';
-import { fetchMoviesByGenre } from '../api';
+import { fetchMoviesByGenre } from '../services/tmdbService';
 import MovieViewer from '../components/MovieViewer';
 import NavBar from '../components/NavBar';
-//import '../styles/App.css';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -20,7 +19,6 @@ export default function Home() {
   const [showEndMessage, setShowEndMessage] = useState(false);
   const navigate = useNavigate();
 
-  // Minimal auth check
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, user => {
       if (!user) navigate('/login');
@@ -69,4 +67,4 @@ export default function Home() {
     </div>
   );
 }
-// (Comment: Minimum working Home with Firebase auth check)
+

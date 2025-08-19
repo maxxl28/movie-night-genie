@@ -6,7 +6,7 @@ Purpose: Render the user's liked movies
 
 import { useEffect } from "react";
 import NavBar from "../components/NavBar";  
-import { fetchUserMovies} from '../api';
+import { fetchUserMovies } from '../services/userMoviesService';
 import { useState } from "react";
 import { auth } from '../firebase';
 

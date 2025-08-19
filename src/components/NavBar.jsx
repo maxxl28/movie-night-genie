@@ -9,9 +9,8 @@ export default function NavBar() {
     <nav className="nav-container">
       <ul className="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/Friends">Find Friends</a></li>
         <li><a href="/Trending">Trending</a></li>
-        <li><a href="/Movies">Your movies</a></li>
+        <li><a href="/Movies">Your Movies</a></li>
       </ul>
     </nav>
   )

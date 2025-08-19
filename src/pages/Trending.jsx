@@ -5,7 +5,7 @@ Purpose: Display trending movies
 */
 
 import { useEffect, useState } from 'react';
-import { fetchTrendingMovies } from '../api/trending';
+import { fetchTrendingMovies } from '../services/trendingService';
 import NavBar from '../components/NavBar';
 
 export default function Trending() {

@@ -1,4 +1,10 @@
-// src/db.js
+/*
+Author: Max Liu
+Email: maximilian.b.liu.28@dartmouth.edu
+Purpose: Database connection  to PostGreSQL
+*/
+
+
 import pkg from 'pg';
 const { Pool } = pkg;
 

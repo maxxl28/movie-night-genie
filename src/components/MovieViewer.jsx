@@ -8,7 +8,7 @@ import { useState } from 'react';
 import MovieCard from './MovieCard';
 import ThumbsControls from './ThumbsControls';
 import MovieModal from './MovieModal'
-import { addLikedMovie } from '../api/likedMovies';
+import { addLikedMovie } from '../services/userLikesService';
 import { auth } from '../firebase';
 
 export default function MovieViewer({ movies, onFinished }) {
