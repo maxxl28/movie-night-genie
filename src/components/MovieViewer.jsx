@@ -8,6 +8,8 @@ import { useState } from 'react';
 import MovieCard from './MovieCard';
 import ThumbsControls from './ThumbsControls';
 import MovieModal from './MovieModal'
+import { addLikedMovie } from '../api/likedMovies';
+import { auth } from '../firebase';
 
 export default function MovieViewer({ movies, onFinished }) {
   // Track the current movie
@@ -23,10 +25,17 @@ export default function MovieViewer({ movies, onFinished }) {
     };
   }
   
-  const handleLike = () => {
-    // open Modal
-    setSelectedMovie(movies[currentIndex]);
-    handleNext();
+  const handleLike = async () => {
+    try {
+      const user = auth.currentUser;
+      if (user) {
+        await addLikedMovie(user.uid, movies[currentIndex].id, movies[currentIndex].title); 
+      }
+      setSelectedMovie(movies[currentIndex]);
+      handleNext();
+    } catch (error) {
+      console.error('Error saving liked movie:', error);
+    }
   };
 
   const handleCloseModal = () => {

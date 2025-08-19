@@ -5,9 +5,7 @@ Purpose: Control the movie modal, fetching trailer and streaming services
 */
 
 import { useState, useEffect } from 'react';
-import { 
-  fetchStreamingServices 
-} from '../api';
+import { fetchStreamingServices } from '../api';
 
 export default function MovieModal({ movie, onClose }) {
   const [streamingServices, setStreamingServices] = useState(null);
